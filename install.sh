@@ -38,7 +38,7 @@ TEMP_DIR=$(mktemp -d)
 cd "$TEMP_DIR" || exit 1
 
 echo -e "\n${BLUE}${BOLD}⌛ Downloading BallSploit...${NC}"
-curl -L -o BallSploit.zip https://github.com/verexchaos/ballsploit/releases/download/Stable/BallSploit.zip -# 
+curl -L -o BallSploit.zip https://github.com/verexchaos/ballsploit/releases/download/BallSploit/BallSploit.zip -# 
 
 if [ $? -ne 0 ]; then
     echo -e "\n${RED}${BOLD}✖ Download failed. Check your connection and try again.${NC}"

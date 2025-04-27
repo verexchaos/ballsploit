@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ballsploit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/neutralino.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">
+            <div class="logo-section">
+                <i class="fa-solid fa-code logo-icon"></i>
+                <h1>Ballsploit</h1>
+            </div>
+            <div class="actions">
+                <div class="theme-selector">
+                    <select id="theme">
+                        <option value="system">Auto (System)</option>
+                        <option value="vs">Light</option>
+                        <option value="vs-dark" selected>Dark</option>
+                        <option value="monokai">Monokai</option>
+                        <option value="dracula">Dracula</option>
+                        <option value="night-owl">Night Owl</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="browser-tabs">
+                <div class="tab-header" id="tab-header"></div>
+                <button id="newTabButton" class="new-tab-button"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            
+            <div class="editor-container" id="editor-container"></div>
+            
+            <div class="bottom-panel">
+                <div class="file-actions">
+                    <button id="openFileButton"><i class="fa-solid fa-folder-open"></i> Open</button>
+                    <button id="saveFileButton"><i class="fa-solid fa-save"></i> Save</button>
+                    <button id="pasteButton"><i class="fa-solid fa-paste"></i> Paste</button>
+                </div>
+                
+                <button id="executeButton"><i class="fa-solid fa-play"></i> Execute</button>
+            </div>
+            
+            <div id="result"></div>
+        </div>
+        
+        <div class="status-bar">
+            <div class="status-message">Ready</div>
+            <div class="status-position">Ln 1, Col 1</div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

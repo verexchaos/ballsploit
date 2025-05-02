@@ -145,7 +145,7 @@ function initMonaco() {
                     "GetService", "FindFirstChild", "FindFirstChildOfClass", "IsA", "Destroy", "Clone", "GetChildren"
                 ];
 
-                // Common Lua snippets
+                
                 const snippets = [
                     {
                         label: 'if',
@@ -243,7 +243,7 @@ function initMonaco() {
             applyTheme(theme);
         });
         
-        // Apply initial theme (either system preference or user selection)
+     
         applyTheme(themeSelect.value);
     });
 }
@@ -321,18 +321,15 @@ function registerCustomThemes() {
 
 function applyTheme(theme) {
     document.body.classList.remove('dark-theme', 'monokai', 'dracula', 'night-owl', 'system-theme');
-    
     if (theme === 'system') {
-        // Apply system preference
+      
         document.body.classList.add('system-theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         monaco.editor.setTheme(prefersDark ? 'vs-dark' : 'vs');
     } else {
-        // Apply specific theme
         monaco.editor.setTheme(theme);
         
         if (theme === 'vs') {
-            // Light theme - no additional class needed
         } else if (theme === 'vs-dark') {
             document.body.classList.add('dark-theme');
         } else {
@@ -454,9 +451,7 @@ function activateTab(index) {
         
         const tabElement = document.querySelector(`[data-tab-id="${editors[index].tabId}"]`);
         if (tabElement) {
-            tabElement.classList.add('active');
-            
-            // Scroll the tab into view if needed
+            tabElement.classList.add('active')
             const tabHeader = document.getElementById('tab-header');
             const tabRect = tabElement.getBoundingClientRect();
             const headerRect = tabHeader.getBoundingClientRect();
@@ -525,8 +520,6 @@ async function openFile() {
             
             createNewTab('', filename);
             editors[activeEditorIndex].path = filePath;
-            
-            // Directly set the value instead of using typing animation
             const currentEditor = editors[activeEditorIndex].editor;
             currentEditor.setValue(content);
             
@@ -622,7 +615,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const pasteButton = document.getElementById('pasteButton');
     const resultDiv = document.getElementById('result');
     
-    // Setup system theme detection
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     darkModeMediaQuery.addEventListener('change', (e) => {
         if (document.getElementById('theme').value === 'system') {
@@ -687,7 +679,6 @@ pasteButton.addEventListener('click', async () => {
         if (clipboardText) {
             document.querySelector('.status-message').textContent = 'Pasted from clipboard';
             
-            // Directly set the value instead of using typing animation
             const currentEditor = editors[activeEditorIndex].editor;
             currentEditor.setValue(clipboardText);
             
@@ -699,7 +690,6 @@ pasteButton.addEventListener('click', async () => {
     }
 });
 
-    // Add keyboard shortcuts
     document.addEventListener('keydown', (e) => {
         if (e.ctrlKey || e.metaKey) {
             if (e.key === 's') {
